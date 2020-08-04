@@ -2,7 +2,7 @@ height = float(input('Enter height for tent (in meters) : ')) # Takes in the hei
 radius = float(input('Enter radius for tent (in meters) : ')) # Takes in the radius entered by user
 sl_height = float(input('Enter slant height for tent (in meters) : ')) # Takes in the slant height of cone entered by user
 pi = 3.14
-price_per_unit = 0.5
+price_per_unit = 0.5 # Price per unit set by the company
 
 total_surface_area_cylinder = 2 * pi * radius * (radius + height)
 total_surface_area_cone = pi * radius * (radius + sl_height)
