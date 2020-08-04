@@ -22,6 +22,7 @@ class Tent:
         self.r = r
         self.sl = sl
         print('Generating price for this tent...')
+        Tent.show(self)
 
     def show(self):
         print('Price for this tent is : $', Tent.calculate(self))
@@ -34,9 +35,8 @@ class Tent:
             Tent.price_per_unit * total_surface_area_tent)
         total_tax = 18 / 100 * total_price_exclusive_tax
         total_price_inclusive_tax = total_price_exclusive_tax + total_tax
-        return total_price_inclusive_tax
+        return math.ceil(total_price_inclusive_tax)
 
 
 def run():
     T1 = Tent(height, radius, sl_height)
-    T1.show()
