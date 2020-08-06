@@ -7,14 +7,23 @@ radius = 0.0
 sl_height = 0.0
 transaction_id = 0.0
 exists = False
+error = False
 
 
 def get_input():
     global height, radius, sl_height, transaction_id
-    radius = float(input('Enter radius for tent (in meters) : '))
-    sl_height = float(input('Enter slant height for tent (in meters) : '))
-    height = float(input('Enter height for tent (in meters) : '))
-    transaction_id = time.time()
+    try:
+        radius = float(input('Enter radius for tent (in meters) : '))
+        sl_height = float(input('Enter slant height for tent (in meters) : '))
+        height = float(input('Enter height for tent (in meters) : '))
+        transaction_id = time.time()
+    except ValueError:
+        print("Tent measurements must be in decimal")
+        global error
+        error = True
+    except Exception:
+        print('Something went wrong :(')
+        error = True
 
 
 class Tent:
@@ -73,4 +82,6 @@ class Tent:
 
 def run():
     get_input()
-    T1 = Tent(height, radius, sl_height)
+    global error
+    if error is not True:
+        T1 = Tent(height, radius, sl_height)
